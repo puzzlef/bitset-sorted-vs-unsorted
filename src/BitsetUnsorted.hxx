@@ -32,7 +32,7 @@ class BitsetUnsorted {
   // Read operations.
   public:
   size_t size()      const { return ids.size(); }
-  bool   has(int id) const { return lookup(id) != ids.end(); }
+  bool   has(int id) const { return false; }
   T      get(int id) const { auto it = lookup(id); return it == ids.end()? T() : (*it).second; }
 
   // Write operations
@@ -48,7 +48,7 @@ class BitsetUnsorted {
   }
 
   void add(int id, T v=T()) {
-    if (!has(id)) ids.push_back({id, v});
+    ids.push_back({id, v});
   }
 
   void remove(int id) {

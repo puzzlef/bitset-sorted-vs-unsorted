@@ -71,7 +71,7 @@ class DiGraph {
   }
 
   void addEdge(int u, int v, E d=E()) {
-    if (hasEdge(u, v)) return;
+    if (typeid(B) != typeid(BitsetUnsorted)) { if (hasEdge(u, v)) return; }
     addVertex(u);
     addVertex(v);
     edata[u].add(v, d);
